@@ -1,12 +1,84 @@
-# React + Vite
+# 🧮 Multiplayer Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time web-based **MULTIPLAYER** counter that shows live user lists, personal scores, and mouse cursors for all connected players!
 
-Currently, two official plugins are available:
+The **motivation** behind this was to so something with socket.io, the simplest multiplayer application one could make, with the already given default app with vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Later added the **Multi-Cursor** functionality as well.
 
-## Expanding the ESLint configuration
+Built with **React (frontend)** and **Node.js + Socket.IO (backend)**.  
+**Frontend** deployed on **Vercel**, **backend** on **Render**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**[Try the live demo!](https://multiplayer-counter.vercel.app/)**
+
+---
+
+## 🚀 Features
+
+- **Real-time** multiplayer counter — increments reflected live for everyone
+- **User ranking/scoreboard** with join time and scores
+- **Live cursors:** See where each user’s mouse is (desktop only)
+- **Persistent scores** using backend runtime storage (`userdata.json`)
+- **Works on mobile and desktop** (with limited cursor features)
+- Fun for classrooms, friends’ groups, or demo interviews!
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React (Hooks), Vite, CSS
+- **Backend:** Node.js, Express, Socket.IO
+- **Storage:** JSON file (`userdata.json`) on backend only
+- **Hosting:** Vercel (frontend), Render (backend)
+
+---
+
+## 🌐 Live Instances
+
+- **Frontend:** [https://multiplayer-counter.vercel.app/](https://multiplayer-counter.vercel.app/)
+- **Backend:** [https://nebula-runner-backend.onrender.com/](https://nebula-runner-backend.onrender.com/) *(Note: Your backend **must** be configured for your frontend domain in CORS)*
+
+---
+
+## 🧑💻 Local Development
+
+### **1. Clone the repo**
+```
+git clone https://github.com/hariom57/multiplayer-counter.git
+cd multiplayer-counter
+```
+
+### **2. Backend setup**
+```
+cd server
+npm install
+npm start
+```
+
+### **3. Frontend setup**
+```
+cd ../src
+npm install
+npm run dev
+```
+
+### **4. Connecting Frontend to Backend**
+In `src/App.jsx`, set the Socket.IO connection URL to your backend:
+```
+// For local dev:
+sock.current = io("http://localhost:4000");
+
+// For deploy:
+sock.current = io("https://nebula-runner-backend.onrender.com");
+```
+
+---
+
+## 📜 License
+
+**MIT License.**  
+**Free for demo & educational use. Adapt for your own projects!**
+
+---
+
+**Enjoy! Pull requests welcome.**
