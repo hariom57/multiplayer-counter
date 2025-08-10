@@ -10,8 +10,13 @@ app.use(cors());
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: { origin: ['http://localhost:5173','https://multiplayer-counter.vercel.app'], methods: ['GET', 'POST'] }
+  cors: {
+    origin: ['http://localhost:5173', 'https://multiplayer-counter.vercel.app'],
+    methods: ['GET', 'POST'],
+    credentials: true
+  }
 });
+
 
 const DATA_FILE = path.resolve('./userdata.json');
 let counter = 0;
