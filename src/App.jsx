@@ -10,7 +10,7 @@ export default function App() {
 
   const connect = name => {
     sock.current?.disconnect();
-    sock.current = io("http://localhost:4000");
+    sock.current = io("https://nebula-runner-backend.onrender.com");
     sock.current.on("yourName", setMyName);
     sock.current.on("onlineUsers", setUsers);
     sock.current.on("counterUpdate", setCounter);
